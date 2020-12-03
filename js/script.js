@@ -26,7 +26,6 @@ function WriteInfo(info) {
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   url[url] = e.target.elements.URL.value;
-  console.log(url[url]);
   fetch("Localhost:5000/api/scraper", {
     method: "POST",
     headers: {
