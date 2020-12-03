@@ -27,7 +27,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   url[url] = e.target.elements.URL.value;
   console.log(url[url]);
-  fetch("", {
+  fetch("Localhost:5000/api/scraper", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -37,6 +37,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
+      WriteInfo(data);
     })
     .catch((error) => {
       console.error("Error:", error);
