@@ -23,4 +23,24 @@ function WriteInfo(info) {
     main.appendChild(section);
   }
 }
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  url[url] = e.target.elements.URL.value;
+  console.log(url[url]);
+  fetch("", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(url),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+});
+
 WriteInfo(info);
